@@ -1,1 +1,1 @@
-Made a tic tac toe game using pygame
+Tic-Tac-Toe made from pygame

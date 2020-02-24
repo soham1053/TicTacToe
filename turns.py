@@ -6,6 +6,8 @@ board = [['', '', ''], ['', '', ''], ['', '', '']]
 width, height = 600, 600
 screen = pygame.display.set_mode((width, height))
 clock = pygame.time.Clock()
+white = (255, 255, 255)
+black = (0, 0, 0)
 
 def turn(player):
     if player == "X":
@@ -13,7 +15,7 @@ def turn(player):
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    return None
+                    quit()
 
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     mx, my = pygame.mouse.get_pos()
@@ -30,7 +32,7 @@ def turn(player):
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    return None
+                    quit()
 
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     mx, my = pygame.mouse.get_pos()
@@ -51,13 +53,13 @@ def draw(mx, my, player):
     if board[floormy][floormx] == '':
         if player == "X":
             board[floormy][floormx] = "X"
-            pygame.draw.line(screen, (255, 255, 255), (mx, my), (mx+200, my+200), 10)
-            pygame.draw.line(screen, (255, 255, 255), (mx, my+200), (mx+200, my), 10)
+            pygame.draw.line(screen, white, (mx, my), (mx+200, my+200), 10)
+            pygame.draw.line(screen, white, (mx, my+200), (mx+200, my), 10)
 
         elif player == "O":
             board[floormy][floormx] = "O"
-            pygame.draw.circle(screen, (255, 255, 255), (mx+100, my+100), 100)
-            pygame.draw.circle(screen, (0, 0, 0), (mx+100, my+100), 80)
+            pygame.draw.circle(screen, white, (mx+100, my+100), 100)
+            pygame.draw.circle(screen, black, (mx+100, my+100), 80)
 
 def isOpen(mx, my):
     mx /= 200
